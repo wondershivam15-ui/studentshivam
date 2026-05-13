@@ -1,104 +1,391 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" >
-    <meta name="viewport" content="width=30, initial-scale=1.0">
-    <title>Shivam Resume</title>
-    <link rel="stylesheet" href="shiv.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Anand Shivam — Resume</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #0a0a0a;
+      color: #e0e0e0;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 300;
+      line-height: 1.8;
+    }
+
+    /* ── TOP HEADER BAR ── */
+    .header {
+      background: #111111;
+      border-bottom: 2px solid #7c6af7;
+      padding: 48px 24px 36px;
+      text-align: center;
+    }
+
+    .profile-pic {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #7c6af7;
+      margin-bottom: 16px;
+    }
+
+    .header h1 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: 1px;
+    }
+
+    .header p.tagline {
+      color: #7c6af7;
+      font-size: 0.95rem;
+      font-weight: 500;
+      margin-top: 6px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    /* ── SOCIAL LINKS ── */
+    .social-links {
+      margin-top: 18px;
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .social-links a {
+      color: #aaaaaa;
+      text-decoration: none;
+      font-size: 0.82rem;
+      border: 1px solid #2a2a2a;
+      padding: 5px 16px;
+      border-radius: 100px;
+      transition: all 0.25s;
+    }
+
+    .social-links a:hover {
+      border-color: #7c6af7;
+      color: #7c6af7;
+    }
+
+    /* ── MAIN CONTENT ── */
+    .container {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+
+    /* ── SECTION ── */
+    .section {
+      margin-bottom: 44px;
+    }
+
+    .section-title {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: #7c6af7;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .section-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: #1e1e1e;
+    }
+
+    /* ── OBJECTIVE ── */
+    .objective-text {
+      background: #111111;
+      border-left: 3px solid #7c6af7;
+      padding: 18px 22px;
+      border-radius: 0 10px 10px 0;
+      color: #bbbbbb;
+      font-size: 0.95rem;
+      line-height: 1.9;
+    }
+
+    /* ── DETAILS GRID ── */
+    .details-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .detail-item {
+      background: #111111;
+      border: 1px solid #1e1e1e;
+      border-radius: 10px;
+      padding: 14px 18px;
+    }
+
+    .detail-item .label {
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #555566;
+      margin-bottom: 4px;
+    }
+
+    .detail-item .value {
+      font-size: 0.9rem;
+      color: #dddddd;
+      font-weight: 400;
+    }
+
+    .detail-item .value a {
+      color: #7c6af7;
+      text-decoration: none;
+    }
+
+    .detail-item .value a:hover {
+      text-decoration: underline;
+    }
+
+    /* ── SKILLS ── */
+    .skills-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .skill-tag {
+      background: #131320;
+      border: 1px solid #2a2a40;
+      color: #ccccee;
+      font-size: 0.82rem;
+      padding: 6px 16px;
+      border-radius: 100px;
+      transition: all 0.2s;
+    }
+
+    .skill-tag:hover {
+      border-color: #7c6af7;
+      color: #7c6af7;
+    }
+
+    .skill-tag.learning {
+      border-style: dashed;
+      color: #777788;
+    }
+
+    /* ── EDUCATION ── */
+    .edu-card {
+      background: #111111;
+      border: 1px solid #1e1e1e;
+      border-radius: 12px;
+      padding: 20px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .edu-degree {
+      font-weight: 600;
+      font-size: 1rem;
+      color: #ffffff;
+    }
+
+    .edu-school {
+      font-size: 0.85rem;
+      color: #888899;
+      margin-top: 4px;
+    }
+
+    .edu-badge {
+      background: #1a1a2e;
+      border: 1px solid #7c6af7;
+      color: #7c6af7;
+      font-size: 0.75rem;
+      padding: 4px 14px;
+      border-radius: 100px;
+      white-space: nowrap;
+    }
+
+    /* ── PROJECTS ── */
+    .project-card {
+      background: #111111;
+      border: 1px solid #1e1e1e;
+      border-radius: 12px;
+      padding: 20px 24px;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      transition: border-color 0.25s, transform 0.2s;
+    }
+
+    .project-card:hover {
+      border-color: #7c6af7;
+      transform: translateX(5px);
+    }
+
+    .project-name {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: #ffffff;
+      margin-bottom: 4px;
+    }
+
+    .project-desc {
+      font-size: 0.82rem;
+      color: #777788;
+    }
+
+    .project-tech {
+      font-size: 0.72rem;
+      background: #1a1a2e;
+      border: 1px solid #7c6af7;
+      color: #7c6af7;
+      padding: 3px 12px;
+      border-radius: 100px;
+      white-space: nowrap;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 32px 24px;
+      border-top: 1px solid #1a1a1a;
+      color: #444455;
+      font-size: 0.78rem;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 560px) {
+      .details-grid {
+        grid-template-columns: 1fr;
+      }
+      .header h1 {
+        font-size: 1.7rem;
+      }
+    }
+
+  </style>
 </head>
 <body>
-    <div>
-    <h1><pre> <b> <I>RESUME</I></b></pre></h1>
-        <img src="shivaa.jpeg" alt="Profile picture" width="230" height="230">
-        <div>
-             <h3>CARRR OBJECTIVE</h3>
-        <i>
-            Hello everyone I am Anand Shivam, a motivated and sincere BCA student seeking opportunities
-            to enhance my technical skills and gain practical experience in the feild of Computer 
-            application while contributing positively to academic and professional environment.
-</i>
-    </p>
-    </div>
-    <hr>
-    <div>
-    <h3>PERSONAL DETAILS </h3>
-<ul>
-    <li>NAME : Anand Shivam</li>
-    <LI>MOB. : 83XXXXXXX3</LI>
-    <LI>EMAIL : <a href="wondershivam15@gmail.com" target="_main">wondershivam15@gmail.com</a></LI>
-    <li>For more information -<a href="https://www.linkedin.com/in/anand-shivam-846312374?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app " target="_main">Linkedin,</a>
-        <a href="https://x.com/im_anandshivam" target="_main">X,</a>
-        <a href="https://www.instagram.com/anand_shivam15?igsh=MW4zNnRzOGxkMDV1NA==" target="_main">Instagram</a>
-    </li>
-    <li>GENDER : Male</li>
-    <LI>LANGUAGE KNOWN : Hindi, English</LI>
-</ul>
-</div>
-<HR>
-    <div>
-    <h3>EDUCATIONAL QUALIFICATION</h3>
-    
-    <table border="2">
-        <TR>
-            <td>COURSE</td>
-            <TD>INSTITUTE</TD>
-            <TD>PASSING YEAR</TD>
-            <TD>PERCENTAGE</TD>
-        </TR>
-        <TR>
-                <td>10th</td>
-                <td><a href="https://amhsmandar.org/Home_Page" target="_main">AMHS,</a> Bounsi, Banka</td>
-                <TD>2023</TD>
-                <TD>87.8 %</TD>
-    
-        </TR>
-        <TR>
-            <TD>12th</TD>
-            <td><a href="https://tnbcollege.org/" target="_main">T.N.B COLLEGE,</a>Bhagalpur</td>
-            <td>2025</td>
-            <td>77.6 %</td>
-        </TR>
-        <tr>
-            <td>BCA</td>
-            <td><a href="https://tnbcollege.org/">T.N.B COLLEGE,</a> Bhagalpur</td>
-            <td>2025-28</td>
-            <td>Pursuing</td>
-        </tr>
-    </div>
-    </table>
-    </div>
-    <hr>
-    <div>
-    <H3> TECHNICAL SKILLS</H3>
-<UL>
-    <LI>C Programming</LI>
-    <li>HTML</li>
-    <li>Python(Basic)</li>
-    <li>MS word, Excel, Powerpoint</li>
-    <LI>Computer Fundamentals</LI>
-</UL>
-</div>
-<hr>
-<div>
-<h3>STRENGTHS</h3>
-<UL>
-    <LI>Quick lerner</LI>
-    <li>Hardworking and disciplined</li>
-    <li>Good problen-solving ability</li>
-    <li>Positive attitude</li>
-</UL>
-</div><hr>
-<div>
-<h3>DECLARATION</h3>
-<I>
-    I hereby declare that the information provided above is true and correct to the best of my knowledge and belief.
-</I>
-<ul>
-    <li>PLACE : Bhagalpur</li>
-    <li>DATE : 20/12/2025</li>
-    <li>SIGNATURE : Anand Shivam</li>
-</ul>
-</div>
-</body>
-</html
 
+  <!-- HEADER -->
+  <div class="header">
+    <img src="shivaa.jpeg" alt="Anand Shivam" class="profile-pic"/>
+    <h1>Anand Shivam</h1>
+    <p class="tagline">BCA Student · Web Dev · Machine Learning</p>
+    <div class="social-links">
+      <a href="mailto:wondershivam15@gmail.com">✉ Email</a>
+      <a href="https://www.linkedin.com/in/anand-shivam-846312374" target="_blank">LinkedIn</a>
+      <a href="https://x.com/im_anandshivam" target="_blank">X (Twitter)</a>
+      <a href="https://www.instagram.com/anand_shivam15" target="_blank">Instagram</a>
+      <a href="https://github.com/wondershivam15-ui" target="_blank">GitHub</a>
+    </div>
+  </div>
+
+  <!-- MAIN -->
+  <div class="container">
+
+    <!-- CAREER OBJECTIVE -->
+    <div class="section">
+      <div class="section-title">Career Objective</div>
+      <div class="objective-text">
+        I am Anand Shivam, a motivated and sincere BCA student seeking opportunities
+        to enhance my technical skills and gain practical experience in the field of
+        Computer Applications — while contributing positively to academic and
+        professional environments.
+      </div>
+    </div>
+
+    <!-- PERSONAL DETAILS -->
+    <div class="section">
+      <div class="section-title">Personal Details</div>
+      <div class="details-grid">
+        <div class="detail-item">
+          <div class="label">Full Name</div>
+          <div class="value">Anand Shivam</div>
+        </div>
+        <div class="detail-item">
+          <div class="label">Email</div>
+          <div class="value"><a href="mailto:wondershivam15@gmail.com">wondershivam15@gmail.com</a></div>
+        </div>
+        <div class="detail-item">
+          <div class="label">Gender</div>
+          <div class="value">Male</div>
+        </div>
+        <div class="detail-item">
+          <div class="label">Languages Known</div>
+          <div class="value">Hindi, English</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- EDUCATION -->
+    <div class="section">
+      <div class="section-title">Education</div>
+      <div class="edu-card">
+        <div>
+          <div class="edu-degree">Bachelor of Computer Applications (BCA)</div>
+          <div class="edu-school">2nd Semester · 2024 – 2027</div>
+        </div>
+        <span class="edu-badge">Currently Pursuing</span>
+      </div>
+    </div>
+
+    <!-- SKILLS -->
+    <div class="section">
+      <div class="section-title">Skills</div>
+      <div style="margin-bottom: 10px; font-size: 0.75rem; color: #555566; letter-spacing: 1px;">COMFORTABLE WITH</div>
+      <div class="skills-wrap" style="margin-bottom: 16px;">
+        <span class="skill-tag">C</span>
+        <span class="skill-tag">HTML</span>
+        <span class="skill-tag">CSS</span>
+      </div>
+      <div style="margin-bottom: 10px; font-size: 0.75rem; color: #555566; letter-spacing: 1px;">CURRENTLY LEARNING</div>
+      <div class="skills-wrap">
+        <span class="skill-tag learning">C++</span>
+        <span class="skill-tag learning">Python</span>
+        <span class="skill-tag learning">JavaScript</span>
+        <span class="skill-tag learning">Machine Learning</span>
+      </div>
+    </div>
+
+    <!-- PROJECTS -->
+    <div class="section">
+      <div class="section-title">Projects</div>
+      <a class="project-card" href="https://wondershivam15-ui.github.io/studentshivam/" target="_blank">
+        <div>
+          <div class="project-name">📄 Resume Website</div>
+          <div class="project-desc">Personal resume deployed live on GitHub Pages</div>
+        </div>
+        <span class="project-tech">HTML · CSS</span>
+      </a>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    Built with HTML & CSS by Anand Shivam &nbsp;·&nbsp;
+    <a href="https://github.com/wondershivam15-ui" style="color: #7c6af7; text-decoration: none;">GitHub</a>
+  </footer>
+
+</body>
+</html>
